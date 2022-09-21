@@ -1,14 +1,14 @@
 import React from "react";
 import DataTable from "react-data-table-component";
-import { columns, data } from "../../constant/index";
+import { columns } from "../../constant/index";
 
-const index = () => {
+const index = ({inventoryTableData}) => {
 
   return (
     <div className="main">
         <DataTable
           columns={columns}
-          data={data}
+          data={inventoryTableData}
           noHeader
           defaultSortField="id"
           defaultSortAsc={false}

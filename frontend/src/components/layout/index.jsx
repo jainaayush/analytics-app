@@ -10,7 +10,6 @@ const MainPage = () => {
   const [title, setTitle] = useState("home");
 
   useLayoutEffect(() => {
-    console.log("location-0000",location.pathname) 
     if(location.pathname === "/") {
       setTitle("Home")
     } else if(location.pathname === "/inventory") {
