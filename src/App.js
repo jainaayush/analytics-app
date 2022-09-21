@@ -1,10 +1,16 @@
-import './App.css';
+import  React  from 'react';
+import "./styles/App.scss";
+import MainPage from "./components/layout";
+import { BrowserRouter } from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      welcome in app 
-    </div>
+    <React.Fragment>
+      <BrowserRouter>
+        <MainPage />
+      </BrowserRouter>
+    </React.Fragment>
   );
 }
 
