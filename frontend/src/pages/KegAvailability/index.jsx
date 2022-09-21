@@ -2,7 +2,7 @@ import React from 'react';
 
 const index = () => {
   return (
-    <h1>Keg Availability</h1>
+    <h1 className="text-center mt-5">Comming soon</h1>
   )
 }
 

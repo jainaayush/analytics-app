@@ -20,13 +20,14 @@ const Header = ({ title }) => {
         <h1 className="text-dark text-3xl m-0 ms-4 p-3 fw-bold">Analytics</h1>
         <h1 className="text-dark text-3xl m-0 p-3 fw-bold">{title}</h1>
         <div>
-        {/* {title === "Home" && <Dropdown */}
-        <Dropdown  label="What do we eat?"
-          options={options}
-          value={value}
-          onChange={handleChange}
-        />
-        {/* } */}
+          {title === "Home" && (
+            <Dropdown
+              label="What do we eat?"
+              options={options}
+              value={value}
+              onChange={handleChange}
+            />
+          )}
         </div>
       </div>
     </div>

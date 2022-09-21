@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import InventoryTable from "../../components/InventoryTable";
 
 const index = () => {
   return (
-    <h1>
-      Inventory
-    </h1>
-  )
-}
+    <>
+      <InventoryTable />
+    </>
+  );
+};
 
 export default index;
