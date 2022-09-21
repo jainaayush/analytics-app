@@ -1,34 +1,42 @@
 import React, { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
+import { getRetailerFullProductData } from "../../services/api";
+import { colorSet } from "../../constant/index";
+
+const reactDonutChartBackgroundColor = [
+  "#00E396",
+  "#FEB019",
+  "#FF4560",
+  "#775DD0",
+];
 
 const ProductChart = () => {
-  const [contryname, setCountryname] = useState([]);
-  const [medal, setMedal] = useState([]);
+ 
+  const [label, setlabel] = useState([]);
+  const [chartColor, setChartColor] = useState([]);
+  const [seriesValue, setSeriesValue] =useState("");
 
-  useEffect(() => {
+  useEffect(()=>{
+    getRetailerFullProductData().then((res) => {
+      const color = res.data.data?.map((item, index) => {
+        return { ...item, color: colorSet[index] };
+      });
 
-    
-    getdata();
+     const label = color.map((item) => item.label);
+     const chartColor = color.map((item) => item.color);
+     const series = color.map((item) => item.value);
+     console.log("test", label);
+     setlabel(label);
+     setChartColor(chartColor);
+     setSeriesValue(series)
+      
+    });
+    // eslint-disable-next-line
   }, []);
-
-  const getdata = async () => {
-    const countryname = [];
-    const getmedal = [];
-
-    const reqData = await fetch("http://localhost/reactgraphtutorial/medals");
-    const resData = await reqData.json();
-    for (let i = 0; i < resData.length; i++) {
-      countryname.push(resData[i].country);
-      getmedal.push(parseInt(resData[i].medals));
-    }
-    setCountryname(countryname);
-    setMedal(getmedal);
-  };
-
+ 
   return (
     <React.Fragment>
       <div className="container-fluid mt-3 mb-3">
-        <h2 className="text-left">Donut Chart</h2>
         <div className="d-flex justify-content-between">
           <div className="w-100 mt-5 pt-5">
             <div className="d-flex align-items-center justify-content-between py-3 ms-3 border-bottom w-100">
@@ -46,15 +54,18 @@ const ProductChart = () => {
               <div>2</div>
             </div>
           </div>
+          {console.log("-0000label", seriesValue, "labels---0", label, "chartColor", chartColor)}
           <Chart
             type="donut"
-            width={1000}
+            width={950}
             height={550}
-            series={[45, 67, 89, 34, 43]}
+            series={seriesValue}
+            colors={reactDonutChartBackgroundColor}
             options={{
-              labels: ['USA', "china", "India", "Koria", "Russia"],
+              // colors : chartColor,
+              labels: label,
               title: {
-                text: "Medal Country Name",
+                text: "",
                 // align:"center",
               },
 
@@ -66,7 +77,6 @@ const ProductChart = () => {
                       total: {
                         show: true,
                         showAlways: true,
-                        //formatter: () => '343',
                         fontSize: 30,
                         color: "#f90000",
                       },

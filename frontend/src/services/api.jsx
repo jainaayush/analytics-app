@@ -17,3 +17,11 @@ export const getInventoryTypesData = async () => {
         console.log('Error while calling api', error);
     }
 }
+
+export const getRetailerFullProductData = async () => {
+    try {
+        return await axios.get(`${URL}/item/retailerFullProduct`);
+    } catch (error) {
+        console.log('Error while calling api', error);
+    }
+}
