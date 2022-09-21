@@ -14,6 +14,7 @@ const index = () => {
           defaultSortAsc={false}
           pagination
           highlightOnHover
+          className="table_main"
         />
     </div>
   );

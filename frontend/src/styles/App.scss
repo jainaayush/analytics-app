@@ -120,6 +120,27 @@
 .mouse {
   cursor: pointer;
 }
+.table_main div[class*="_TableRow"] > div:first-child {
+  border-left: 1px solid #ccc;
+}
+.table_main div[class*="_TableCell"], 
+.table_main div[class*="_TableHeadRow"] > div:last-child {
+  border-right: 1px solid #ccc;
+}
+.table_main div[class*="_TableHeadRow"] > div {
+  border-left: 1px solid #ccc;
+  font-weight: bold;
+  border-top: 1px solid #ccc;
+}
+.header_main{
+  z-index: 9;
+}
+.chart_circle{
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  background-color: #ccc;
+}
 
 .apexcharts-legend {
   display: none !important;
