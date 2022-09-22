@@ -1,6 +1,7 @@
 import axios from "axios";
+import { BASE_URL } from "../config";
 
-const URL = "http://localhost:8001";
+const URL = BASE_URL;
 
 export const customAxios = ({ method, url, data }) => {
   return axios({ url: `${URL}${url}`, method, data });
@@ -40,7 +41,7 @@ export const getInventoryTypesData = async () => {
 
 export const getRetailerFullProductData = async () => {
   try {
-    return await axios.get(`${URL}/item/retailerFullProduct`);
+    return customAxios({ method: "get", url: `/item/retailerFullProduct` });
   } catch (error) {
     console.log("Error while calling api", error);
   }

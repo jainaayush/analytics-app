@@ -9,7 +9,6 @@ import { GETDATA } from '../types';
     const reducer = (state = INITIAL_STATE, action) => {
         
         const { type, payload } = action;
-        console.log("action", action, "payload", payload);
 
         switch (type) {
 

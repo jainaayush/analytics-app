@@ -53,7 +53,7 @@ const Inventory = () => {
 
   return (
     <div>
-      <div className="reset-btn-wrapper">
+      <div className="reset-btn-wrapper d-flex">
         <button
           onClick={() => handleReset()}
           className="btn btn-primary reset-btn mt-5 mr-3"

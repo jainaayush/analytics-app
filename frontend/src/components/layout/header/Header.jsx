@@ -16,13 +16,14 @@ const Header = ({ title }) => {
       setKegOptionData(res.data.data);
       setValue(res.data.data[0]);
     });
-    
+     // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     if (value) {
       dispatch(getKegTrackerIdsAction(value));
     }
+     // eslint-disable-next-line
   }, [value]);
 
 

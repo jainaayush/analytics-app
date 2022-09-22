@@ -18,7 +18,6 @@ const ProductChart = () => {
       const label = color.map((item) => item.label);
       const chartColor = color.map((item) => item.color);
       const series = color.map((item) => item.value);
-      console.log("test", label);
       setlabel(label);
       setChartColor(chartColor);
       setSeriesValue(series);
