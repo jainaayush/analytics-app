@@ -37,6 +37,7 @@ export const colorSet = [
   "#298af2",
   "#af1ad8",
   "#fb8e34",
+  "#775DD0"
 ];
 
 export const columns = [
