@@ -1,10 +1,10 @@
-## SmartContainer:
+## Analytics-App:
 
 # Technologies used:
 -  React: Frontend application
 -  Axios: Api integration
 -  Node JS/Express JS: Backend server
--  Bootstrap: Designing
+-  Bootstrap: Designing with scss
 
 ## Project Setup
 - Clone Repo : https://github.com/skmayank/analytics-react-app.git
@@ -13,20 +13,20 @@
 # Backend 
 1. cd backend
 2. npm install (for setup backend dependency)
-3. npm start (for starting development server at port 8000)
+3. npm start (for starting development server at port 8001)
 
 
 # Frontend
 1. open a new terminal and go to 'frontend' directory from root directory `cd frontend`
 2. npm install (for installing frontend dependency)
 3. npm start ( for starting frontend development server)
-   which will run at 'http://localhost:8001/'
+   which will run at 'http://localhost:3000/'
 
 # Features Implemented ( 3/5 pages )
 
   1) Home
 * Fixed left bar column with link to 5 pages
-* KegTracker ID selection / dropdown box at the Top / Right-Top corner 
+* KegTracker ID selection / dropdown box at the Top / Right-Top corner in header
 * On selecting KegTracker ID, Temperature-Volume-Battery values should change with some animations
 * Getting the Lat-Long from the database for the device, Google Map pin location need to be shown "
 
