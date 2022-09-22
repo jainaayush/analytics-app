@@ -8,14 +8,10 @@ const {
   retailerFullProduct,
 } = require("./controller");
 
-try {
-  router.get("/getInventory", getInventory);
-  router.get("/kegTrackerIds", kegTrackerIds);
-  router.get("/kegTrackerDetails/:id", kegTrackerDetails);
-  router.get("/getInventoryTypes", getInventoryTypes);
-  router.get("/retailerFullProduct", retailerFullProduct);
-} catch (err) {
-  console.log("Error", err.message);
-}
+router.get("/getInventory", getInventory);
+router.get("/kegTrackerIds", kegTrackerIds);
+router.get("/kegTrackerDetails/:id", kegTrackerDetails);
+router.get("/getInventoryTypes", getInventoryTypes);
+router.get("/retailerFullProduct", retailerFullProduct);
 
 module.exports = router;

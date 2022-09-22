@@ -47,28 +47,28 @@ const kegTrackerDetails = (req, res) => {
 };
 
 const getInventoryTypes = (req, res) => {
-  let distinctTypes = [];
-  let typeCount = [];
-  let type = [];
+  let uniqueTypes = [];
+  let itemTypeCount = [];
+  let itemType = [];
   const allTypes = data.map((row) => row.Type);
   console.log(allTypes);
   for (index in allTypes) {
-    if (!distinctTypes.includes(allTypes[index])) {
-      distinctTypes.push(allTypes[index]);
+    if (!uniqueTypes.includes(allTypes[index])) {
+      uniqueTypes.push(allTypes[index]);
     }
   }
-  for (index in distinctTypes) {
-    let count = data.filter((row) => row.Type === distinctTypes[index]).length;
-    typeCount.push(count);
+  for (index in uniqueTypes) {
+    let count = data.filter((row) => row.Type === uniqueTypes[index]).length;
+    itemTypeCount.push(count);
   }
-  for (index in typeCount) {
-    type.push({ name: distinctTypes[index], count: typeCount[index] });
+  for (index in itemTypeCount) {
+    itemType.push({ name: uniqueTypes[index], count: itemTypeCount[index] });
   }
-  console.log(type);
-  if (type) {
+  console.log(itemType);
+  if (itemType) {
     return res.send({
       statusCode: 200,
-      data: type,
+      data: itemType,
     });
   } else {
     return res.send({
@@ -79,31 +79,31 @@ const getInventoryTypes = (req, res) => {
 };
 
 const retailerFullProduct = (req, res) => {
-  let distinctProducts = [];
-  let productCount = [];
-  let product = [];
-  const locationFiltered = data.filter((row) => row.location === "Retailer");
-  const volumeFiltered = locationFiltered.filter((row) => row.volume > 90);
-  const allProducts = volumeFiltered.map((row) => row.Product);
-  for (index in allProducts) {
-    if (!distinctProducts.includes(allProducts[index])) {
-      distinctProducts.push(allProducts[index]);
+  let uniqueItems = [];
+  let itemCount = [];
+  let item = [];
+  const locationFilter = data.filter((row) => row.location === "Retailer");
+  const volumeFilter = locationFilter.filter((row) => row.volume > 90);
+  const allItems = volumeFilter.map((row) => row.Product);
+  for (index in allItems) {
+    if (!uniqueItems.includes(allItems[index])) {
+      uniqueItems.push(allItems[index]);
     }
   }
-  for (index in distinctProducts) {
-    let count = volumeFiltered.filter(
-      (row) => row.Product === distinctProducts[index]
+  for (index in uniqueItems) {
+    let count = volumeFilter.filter(
+      (row) => row.Product === uniqueItems[index]
     ).length;
-    productCount.push(count);
+    itemCount.push(count);
   }
-  for (index in productCount) {
-    product.push({ label: distinctProducts[index], value: Math.round((productCount[index]/volumeFiltered.length)*100) });
+  for (index in itemCount) {
+    item.push({ label: uniqueItems[index], value: Math.round((itemCount[index]/volumeFilter.length)*100) });
   }
-  console.log("getchart", product)
-  if (product) {
+  console.log("getchart", item)
+  if (item) {
     return res.send({
       statusCode: 200,
-      data: product,
+      data: item,
     });
   } else {
     return res.send({
