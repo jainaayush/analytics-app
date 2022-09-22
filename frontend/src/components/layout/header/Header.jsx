@@ -1,18 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getKegTrackerIdsAction } from "../../../redux/action/actions";
+import { useDispatch } from 'react-redux';
 import Dropdown from "../../common/Dropdown";
+import { getKegTrackerIds } from "../../../services/api";
 
 const Header = ({ title }) => {
-  const options = [
-    { label: "Fruit", value: "fruit" },
-    { label: "Vegetable", value: "vegetable" },
-    { label: "Meat", value: "meat" },
-  ];
 
-  const [value, setValue] = React.useState("fruit");
+  const dispatch = useDispatch();
+
+  const [value, setValue] = React.useState("");
+  const [kegOption, setKegOptionData] = useState([]);
+
+  useEffect(() => {
+    getKegTrackerIds().then((res) => {
+      setKegOptionData(res.data.data);
+      setValue(res.data.data[0]);
+    });
+    
+  }, []);
+
+  useEffect(() => {
+    if (value) {
+      dispatch(getKegTrackerIdsAction(value));
+    }
+  }, [value]);
+
 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
+  
 
   return (
     <div className="bg-white h-20 w-full pl-10 space-x-4 shadow position-relative header_main">
@@ -23,7 +40,7 @@ const Header = ({ title }) => {
           {title === "Home" && (
             <Dropdown
               label="What do we eat?"
-              options={options}
+              options={kegOption}
               value={value}
               onChange={handleChange}
             />

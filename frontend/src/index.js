@@ -1,10 +1,16 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
 import ReactDOM from "react-dom/client";
 import "./styles/index.scss";
 import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// REDUX
+import { Provider } from "react-redux";
+import store from "./redux/store";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <Provider store={store}>
     <App />
+  </Provider>
 );

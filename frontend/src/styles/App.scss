@@ -149,3 +149,24 @@
 .apexcharts-legend {
   display: none !important;
 }
+
+
+.thermometer .thermometer__draw-b:after {
+  background-color: #25c4df !important;
+  border-radius: 50%;
+}
+
+.thermometer .thermometer__draw-b:before {
+  background-color: #25c4df !important;
+}
+
+.thermometer .thermometer__bg-color {
+  background-color: #25c4df!important;
+}
+
+.thermometer-tax{
+  color: #25c4df;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 900;
+}
